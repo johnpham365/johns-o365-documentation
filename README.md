@@ -10,6 +10,7 @@ context.on("Change", function() {
 ```typescript
 import { getDataObjectById } from 'o365-dataobject';
 
+const dsObject = getDataObjectById('dsObject');
 
 dsObject.on("DataLoaded", function(pData) {
 });
@@ -22,4 +23,12 @@ function refreshDataObjects() {
         pDataObject.load();
     });
 }
+
+dsObject.recordSource.whereClause = ``;
+```
+
+## URL Parameters
+```typescript
+const urlParams = new URLSearchParams(window.location.search);
+const ID = computed(() => urlParams.get('ID') ?? 0);
 ```
