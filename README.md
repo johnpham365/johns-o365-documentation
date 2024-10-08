@@ -2,6 +2,13 @@
 ```typescript
 import { context } from 'o365-modules';
 
+// name: string
+// id: number
+// idPath: string
+// orgUnit: string
+// isDomain: boolean
+// domainId: number | null
+
 context.on("Change", function() {
 });
 ```
