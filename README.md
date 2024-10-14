@@ -34,6 +34,24 @@ function refreshDataObjects() {
 dsObject.recordSource.whereClause = ``;
 ```
 
+## Stored Procedures
+```typescript
+import { getOrCreateProcedure } from 'o365-modules';
+
+getOrCreateProcedure({
+    id: 'procName',
+    procedureName: 'astp_Procedure'
+}).execute({
+    data: data.Value
+}).then(() => {
+});
+```
+
+## Alert / Toast
+```typescript
+alert('Message', 'success', {autohide: true, delay: 2000, slimVersion: true});
+```
+
 ## URL Parameters
 ```typescript
 const urlParams = new URLSearchParams(window.location.search);
