@@ -1,3 +1,50 @@
+## O365 Table Grid
+```typescript
+import { getDataObjectById } from 'o365-dataobject';
+
+<ODataGrid :dataObject="dsSource" hideActionColumn hideSystemColumn hideMultiselectColumn hideGridMenu>
+    <OColumn field="Column_ID" :headerName="$t('Column_ID')" :headerTitle="$t('Column_ID ID')" width="80" :cellrendererparams="`/register/item?ID={{Column_ID}}`" cellrenderer="OLink" sortable/>
+    <OColumn field="Column_Created" :headerName="$t('Column_Created')" :headerTitle="$t('Column_Created')" width="100" format="Short Date" disableDistinct sortable readonly/>    
+    <OColumn field="Column_Name" :headerName="$t('Column_Name')" :headerTitle="$t('Column_Name')" width="250" sortable/>
+    <OColumn field="Column_Number" :headerName="$t('Column_Number')" :headerTitle="$t('Column_Number')" width="100"class="text-end" headerClass="text-end" format="1 234" sortable/>
+</ODataGrid>
+```
+
+## O365 Properties Grid
+```typescript
+import { OPropertiesGrid, OPropertiesItem, OPropertiesGroup } from 'o365-data-components';
+import { getDataObjectById } from 'o365-dataobject';
+
+    <OPropertiesGrid :dataObject="dsSource">
+        <OPropertiesGroup :caption="$t('Details')">
+            <OPropertiesItem fieldName="Type" :caption="$t('Type')">
+                <input class="w-100 border-0 ps-1" type="text" :title="$t('Type')" v-model="dsSource.current.Type" readonly/>
+            </OPropertiesItem>
+            <OPropertiesItem fieldName="Title" :caption="$t('Title/Name')">
+                <input class="w-100 border-0 ps-1" type="text" :title="$t('Title/Name')"
+                    v-model="dsSource.current.Title"/>
+            </OPropertiesItem>
+            <OPropertiesItem fieldName="OrgUnit_Name" :caption="$t('Org. Unit')">
+                <input class="w-100 border-0 ps-1" type="text" :title="$t('Org. Unit')"
+                    v-model="dsSource.current.OrgUnit_Name" readonly/>
+            </OPropertiesItem>
+            <OPropertiesItem fieldName="Created" :caption="$t('Date Created')">
+                <ODatePicker
+                    class= "w-100 border-0 ps-1"
+                    v-model= 'dsSource.current.Created'
+                    format= "Short Date"
+                    date
+                    readonly
+                />
+            </OPropertiesItem>
+            <OPropertiesItem fieldName="Created By" :caption="$t('Created By')">
+                <input class="w-100 border-0 ps-1" type="text" :title="$t('Created By')"
+                    v-model="dsSource.current.CreatedBy" readonly/>
+            </OPropertiesItem>
+        </OPropertiesGroup>
+    </OPropertiesGrid>
+```
+
 ## Context / Org. Unit Structure
 ```typescript
 import { context } from 'o365-modules';
