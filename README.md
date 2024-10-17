@@ -79,6 +79,9 @@ function refreshDataObjects() {
 }
 
 dsObject.recordSource.whereClause = ``;
+
+dsObject.save();
+dsObject.cancelChanges();
 ```
 
 ## Stored Procedures
