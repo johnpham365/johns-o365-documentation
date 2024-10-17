@@ -7,6 +7,12 @@ import { getDataObjectById } from 'o365-dataobject';
     <OColumn field="Column_Created" :headerName="$t('Column_Created')" :headerTitle="$t('Column_Created')" width="100" format="Short Date" disableDistinct sortable readonly/>    
     <OColumn field="Column_Name" :headerName="$t('Column_Name')" :headerTitle="$t('Column_Name')" width="250" sortable/>
     <OColumn field="Column_Number" :headerName="$t('Column_Number')" :headerTitle="$t('Column_Number')" width="100"class="text-end" headerClass="text-end" format="1 234" sortable/>
+
+    <OColumn field="ID" :headerName="$t('DeletedExample')" :headerTitle="$t('DeletedExample')" width="80" v-slot="{ row }" sortable>
+        <a :class="{ 'text-decoration-line-through': row.Deleted || row.Closed }">
+            {{ row.ID }}
+        </a>
+    </OColumn>
 </ODataGrid>
 ```
 
