@@ -113,3 +113,11 @@ alert('Message', 'success', {autohide: true, delay: 2000, slimVersion: true});
 const urlParams = new URLSearchParams(window.location.search);
 const ID = computed(() => urlParams.get('ID') ?? 0);
 ```
+
+## Permissions
+```SQL
+DISABLE TRIGGER stbl_Database_Permissions_ITrig ON stbl_Database_Permissions;
+INSERT INTO stbl_Database_Permissions (Namespace, AllowCreate, AllowAlter, AllowDrop, AllowUsingTables, Person_ID)
+VALUES ('%', 1, 1, 1, 1, USER_ID_HERE);
+ENABLE TRIGGER stbl_Database_Permissions_ITrig ON stbl_Database_Permissions;
+```
