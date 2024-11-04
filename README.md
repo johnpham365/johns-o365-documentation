@@ -88,6 +88,8 @@ dsObject.recordSource.whereClause = ``;
 
 dsObject.save();
 dsObject.cancelChanges();
+
+dsObject.unsetCurrentIndex();
 ```
 
 ## Stored Procedures
