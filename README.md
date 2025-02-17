@@ -13,6 +13,16 @@ import { getDataObjectById } from 'o365-dataobject';
             {{ row.ID }}
         </a>
     </OColumn>
+
+    <OColumn width="100" field="AcceptReject" headerName="Accept or Reject" editable v-slot:editor="{modelValue:row}">
+        <!-- <ODataLookup :dataObject="dsPS" v-model="row.AcceptReject" :bind="sel=>{row.AcceptReject = sel.Status}"> -->
+            <!-- <OColumn field="Status" width="100" :headerName="$t('Status')"/> -->
+        <!-- </ODataLookup> -->
+        <select name="test" id="test" v-model="row.AcceptReject" :bind="sel=>{row.AcceptReject = sel.Value}">
+            <option value="Approved">Approved</option>
+            <option value="Rejected">Rejected</option>
+        </select>
+    </OColumn>
 </ODataGrid>
 ```
 
